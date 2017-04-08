@@ -1,0 +1,18 @@
+{
+  "name": "pretty_css_gradients",
+  "version": "1.0.0",
+  "description": "Using postcss-easing-gradients to create the smoothest gradients.",
+  "main": "index.js",
+  "scripts": {
+    "gulp": "./node_modules/gulp/bin/gulp.js"
+  },
+  "author": "larsenwork",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-postcss": "^6.4.0",
+    "gulp-rename": "^1.2.2",
+    "postcss-easing-gradients": "^1.0.0"
+  }
+}

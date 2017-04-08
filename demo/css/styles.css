@@ -1,0 +1,12 @@
+*, *:before, *:after {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-image: linear-gradient(to bottom, hsl(300, 100%, 25%) 0%, hsla(300, 100%, 25%, 0.86) 8.52%, hsla(300, 100%, 25%, 0.72) 17.53%, hsla(300, 100%, 25%, 0.58) 27.19%, hsla(300, 100%, 25%, 0.46) 36.28%, hsla(300, 100%, 25%, 0.36) 44.56%, hsla(300, 100%, 25%, 0.28) 51.97%, hsla(300, 100%, 25%, 0.21) 59.18%, hsla(300, 100%, 25%, 0.15) 66.33%, hsla(300, 100%, 25%, 0.1) 73.39%, hsla(300, 100%, 25%, 0.06) 80.36%, hsla(300, 100%, 25%, 0.03) 87.18%, hsla(300, 100%, 25%, 0.01) 93.73%, hsla(300, 100%, 25%, 0) 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
