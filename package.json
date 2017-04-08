@@ -1,0 +1,30 @@
+{
+  "name": "postcss-easing-gradients",
+  "version": "1.0.0",
+  "description": "PostCSS plugin to create smooth linear-gradients that approximate easing functions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larsenwork/postcss-easing-gradients.git"
+  },
+  "keywords": [
+    "postcss",
+    "postcss-plugin",
+    "css",
+    "gradients"
+  ],
+  "author": "Andreas Larsen <andreas@larsenwork.com> (https://larsenwork.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/larsenwork/postcss-easing-gradients/issues"
+  },
+  "homepage": "https://github.com/larsenwork/postcss-easing-gradients#readme",
+  "dependencies": {
+    "postcss": "^5.2.16",
+    "postcss-value-parser": "^3.3.0",
+    "tinycolor2": "^1.4.1"
+  }
+}
