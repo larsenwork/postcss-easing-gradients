@@ -1,6 +1,12 @@
-const postcss      = require('postcss');
-const valueParser  = require('postcss-value-parser');
-const tinyColor    = require('tinycolor2');
+const postcss        = require('postcss');
+const valueParser    = require('postcss-value-parser');
+const tinyColor      = require('tinycolor2');
+const easeInSine     = require('eases/sine-in');
+const easeOutSine    = require('eases/sine-out');
+const easeInOutSine  = require('eases/sine-in-out');
+const easeInQuad     = require('eases/quad-in');
+const easeOutQuad    = require('eases/quad-out');
+const easeInOutQuad  = require('eases/quad-in-out');
 
 const supportedGradients = [
   'ease-in-sine-gradient',
@@ -11,6 +17,22 @@ const supportedGradients = [
   'ease-in-out-quad-gradient',
   'scrim-gradient'
 ];
+
+const scrimCoordinates = {
+  0.00: '0%',
+  0.14: '8.52%',
+  0.28: '17.53%',
+  0.42: '27.19%',
+  0.54: '36.28%',
+  0.64: '44.56%',
+  0.72: '51.97%',
+  0.79: '59.18%',
+  0.85: '66.33%',
+  0.90: '73.39%',
+  0.94: '80.36%',
+  0.97: '87.18%',
+  0.99: '93.73%'
+}
 
 /**
  * The easing gradient function is a postcss plugin which supports the above
@@ -100,23 +122,15 @@ function functionToWord(obj) {
  */
 function getColorStops(colors, easingType) {
   colors = transparentFix(colors);
+  let gradientCoordinates = getCoordinates(easingType);
   let colorStops = '';
-  if (easingType === 'scrim-gradient') {
-    for (let ammount in scrimMap) {
-      let color = tinyColor
-        .mix(colors[0], colors[1], ammount)
-        .toHslString();
-      colorStops += `, ${color} ${scrimMap[ammount]}`;
-    }
-  } else {
-    for (let stopValue of stopsArray(15)) {
-      let color = tinyColor
-        .mix(colors[0], colors[1], 100 * ease(stopValue, easingType))
-        .toHslString();
-      let percent = getPercentage(stopValue);
-      colorStops += `, ${color} ${percent}`;
-    }
+  for (let ammount in gradientCoordinates) {
+    let color = tinyColor
+      .mix(colors[0], colors[1], ammount * 100)
+      .toHslString();
+    colorStops += `, ${color} ${gradientCoordinates[ammount]}`;
   }
+  colorStops += `, ${colors[1]} 100%`;
   return colorStops;
 };
 
@@ -140,44 +154,72 @@ function transparentToAlpha(colors, color) {
 }
 
 /**
- * Function to generate an array with values that are linear divisions of 1
- * E.g. [0, 0.25, 0.5, 0.75, 1]
+ * Get coordinates based on easing function.
+ * The delta checks ensures there's roughly the same distance between each
+ * coordinate.
  */
-function stopsArray(stopCount) {
-  let array = [];
-  let value = 0;
-  let i = 0;
-  while (i <= stopCount) {
-    array.push(value);
-    value += 1/stopCount;
-    i += 1;
+function getCoordinates(easingFunction) {
+  if (easingFunction === 'scrim-gradient') return scrimCoordinates;
+
+  const yIncrements = 0.001;
+  const deltaTolerance = 0.01;
+  const deltaAdjust = 0.001;
+
+  let delta = 0.1;
+  let coordinates = {};
+  let x = 0;
+  let y = 0;
+  let xOld = 0;
+  let yOld = 0;
+  let firstTime = true;
+
+  while (firstTime || !isDelta(1, 1, xOld, yOld, delta - deltaTolerance)) {
+    if (firstTime) {
+      firstTime = false;
+    } else {
+      x = 0;
+      y = 0;
+      xOld = 0;
+      yOld = 0;
+      delta = delta - deltaAdjust;
+      coordinates = {};
+    }
+    while (y <= 1) {
+      coordinates[0] = 0;
+      x = ease(y, easingFunction);
+      if (isDelta(x, y, xOld, yOld, delta)) {
+        coordinates[x] = getPercentage(y);
+        xOld = x;
+        yOld = y;
+      }
+      y += yIncrements;
+    }
   }
-  return array;
+  return coordinates;
 }
 
 /**
- * Easing functions
- * https://gist.github.com/gre/1650294
+ * Easing functions switcheroo
  */
 function ease(x, type) {
   switch (type) {
     case 'ease-in-sine-gradient':
-      return -1 * Math.cos(x * (Math.PI / 2)) + 1;
+      return easeInSine(x);
       break;
     case 'ease-out-sine-gradient':
-      return Math.sin(x * (Math.PI / 2));
+      return easeOutSine(x);
       break;
     case 'ease-in-out-sine-gradient':
-      return -0.5 * (Math.cos(Math.PI * x) - 1);
+      return easeInOutSine(x);
       break;
     case 'ease-in-quad-gradient':
-      return x * x;
+      return easeInQuad(x);
       break;
     case 'ease-out-quad-gradient':
-      return x * (2 - x);
+      return easeOutQuad(x);
       break;
     case 'ease-in-out-quad-gradient':
-      return x < .5 ? 2 * x * x : -1 + (4 - 2 * x) * x;
+      return easeInOutQuad(x);
       break;
     default:
       console.log(`Sorry, easing gradient does not support ${type}.`);
@@ -191,19 +233,9 @@ function getPercentage (num) {
   return parseFloat((num * 100).toFixed(3)) + '%';
 }
 
-const scrimMap = {
-  0: '0%',
-  14: '8.52%',
-  28: '17.53%',
-  42: '27.19%',
-  54: '36.28%',
-  64: '44.56%',
-  72: '51.97%',
-  79: '59.18%',
-  85: '66.33%',
-  90: '73.39%',
-  94: '80.36%',
-  97: '87.18%',
-  99: '93.73%',
-  100: '100%'
+/**
+ * Test is new coordinate is far enough away from old coordinate
+ */
+function isDelta(x, y, xOld, yOld, delta) {
+  return Math.sqrt((x - xOld) ** 2 + (y - yOld) ** 2) > delta;
 }
