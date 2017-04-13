@@ -4,9 +4,20 @@
 }
 
 body {
-  background-image: linear-gradient(to bottom, hsl(300, 100%, 25%) 0%, hsla(300, 100%, 25%, 0.86) 8.52%, hsla(300, 100%, 25%, 0.72) 17.53%, hsla(300, 100%, 25%, 0.58) 27.19%, hsla(300, 100%, 25%, 0.46) 36.28%, hsla(300, 100%, 25%, 0.36) 44.56%, hsla(300, 100%, 25%, 0.28) 51.97%, hsla(300, 100%, 25%, 0.21) 59.18%, hsla(300, 100%, 25%, 0.15) 66.33%, hsla(300, 100%, 25%, 0.1) 73.39%, hsla(300, 100%, 25%, 0.06) 80.36%, hsla(300, 100%, 25%, 0.03) 87.18%, hsla(300, 100%, 25%, 0.01) 93.73%, hsla(300, 100%, 25%, 0) 100%);
+  /*background-image: linear-gradient(to right, black 49%, transparent 50%);*/
+}
+
+.gradient {
+  background-image: linear-gradient(to right, black, transparent);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 50vh;
+  width: 20vw;
+  margin: 0 auto;
+}
+
+.gradient--easing {
+  background-image: linear-gradient(to right, hsl(0, 0%, 0%) 0, hsla(0, 0%, 0%, 0.98) 9.5%, hsla(0, 0%, 0%, 0.92) 17.7%, hsla(0, 0%, 0%, 0.86) 24.7%, hsla(0, 0%, 0%, 0.78) 31%, hsla(0, 0%, 0%, 0.7) 36.8%, hsla(0, 0%, 0%, 0.62) 42.3%, hsla(0, 0%, 0%, 0.54) 47.6%, hsla(0, 0%, 0%, 0.45) 52.9%, hsla(0, 0%, 0%, 0.37) 58.2%, hsla(0, 0%, 0%, 0.29) 63.7%, hsla(0, 0%, 0%, 0.21) 69.5%, hsla(0, 0%, 0%, 0.14) 75.8%, hsla(0, 0%, 0%, 0.07) 82.9%, hsla(0, 0%, 0%, 0.02) 91.2%, hsla(0, 0%, 0%, 0) 100%);
+  width: 30vw;
 }

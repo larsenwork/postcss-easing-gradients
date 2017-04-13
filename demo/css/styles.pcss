@@ -4,9 +4,20 @@
 }
 
 body {
-  background-image: scrim-gradient(to bottom, purple, transparent);
+  /*background-image: linear-gradient(to right, black 49%, transparent 50%);*/
+}
+
+.gradient {
+  background-image: linear-gradient(to right, black, transparent);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 50vh;
+  width: 20vw;
+  margin: 0 auto;
+}
+
+.gradient--easing {
+  background-image: ease-in-out-sine-gradient(to right, black, transparent);
+  width: 30vw;
 }

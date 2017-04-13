@@ -6,7 +6,7 @@
   "scripts": {
     "gulp": "./node_modules/gulp/bin/gulp.js"
   },
-  "author": "larsenwork",
+  "author": "Andreas Larsen",
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.18.8",
