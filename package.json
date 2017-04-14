@@ -27,6 +27,6 @@
     "eases": "^1.0.8",
     "postcss": "^5.2.16",
     "postcss-value-parser": "^3.3.0",
-    "round10": "^1.0.3",
+    "round10": "^1.0.3"
   }
 }
