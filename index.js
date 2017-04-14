@@ -1,6 +1,8 @@
 const postcss        = require('postcss');
 const valueParser    = require('postcss-value-parser');
-const tinyColor      = require('tinycolor2');
+const Color          = require('color');
+const round10        = require('round10').round10;
+// Easing functions
 const easeInSine     = require('eases/sine-in');
 const easeOutSine    = require('eases/sine-out');
 const easeInOutSine  = require('eases/sine-in-out');
@@ -64,14 +66,16 @@ module.exports = postcss.plugin('easing-gradient', function easingGradient() {
                 // them back to words.
                 if (param.type === 'function') functionToWord(param);
 
-                // If a param is a color and if so then add to colors array.
-                //
-                if (tinyColor(param.value).isValid()) {
-                  colors.push(param.value);
-
-                // A gradient direction is written using words and spaces
-                } else if (param.type === 'word' || param.type === 'space') {
-                  direction += param.value;
+                // If a param is a color and then add to colors array.
+                try {
+                  Color(param.value) && colors.push(param.value);
+                }
+                catch(error) {
+                  // Test if it's a word or space and assume that's part of the
+                  // direction anotation — e.g. 'to'+' '+'top' or '45deg'
+                  if (param.type === 'word' || param.type === 'space') {
+                    direction += param.value;
+                  }
                 }
               }
 
@@ -118,6 +122,28 @@ function functionToWord(obj) {
 }
 
 /**
+ * Mix colors
+ */
+function mixColors(colorA, colorB, ammount) {
+  return Color(colorA).mix(Color(colorB), ammount).hsl().string();
+}
+
+/**
+ * Round hue and alpha in hsl colors to 3 decimals
+ */
+function roundHueAlpha(color) {
+  let prefix = color.substring(0, color.indexOf('('));
+  let values = color
+    .substring(color.indexOf('(') + 1, color.indexOf(')'))
+    .split(',')
+    .map(string => string.indexOf('%') === -1
+      ? round10(Number(string), -3)
+      : string.trim()
+    );
+  return `${prefix}(${values.join(', ')})`;
+}
+
+/**
  * Calculate the color stops based on start+stopColor in an array and easingType
  */
 function getColorStops(colors, easingType) {
@@ -125,12 +151,11 @@ function getColorStops(colors, easingType) {
   let gradientCoordinates = getCoordinates(easingType);
   let colorStops = '';
   for (let ammount in gradientCoordinates) {
-    let color = tinyColor
-      .mix(colors[0], colors[1], ammount * 100)
-      .toHslString();
+    let color = mixColors(colors[1], colors[0], ammount);
+    color = roundHueAlpha(color);
     colorStops += `, ${color} ${gradientCoordinates[ammount]}`;
   }
-  colorStops += `, ${colors[1]} 100%`;
+  colorStops += `, ${roundHueAlpha(colors[1])} 100%`;
   return colorStops;
 };
 
@@ -149,7 +174,7 @@ function transparentFix(colors) {
  */
 function transparentToAlpha(colors, color) {
   let otherColor = colors[Math.abs(colors.indexOf(color) - 1)];
-  let transparentOfOtherColor = tinyColor(otherColor).setAlpha(0).toHslString();
+  let transparentOfOtherColor = Color(otherColor).alpha(0).hsl().string();
   return transparentOfOtherColor;
 }
 
