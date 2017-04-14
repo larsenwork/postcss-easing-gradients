@@ -4,20 +4,20 @@
 }
 
 body {
-  /*background-image: linear-gradient(to right, black 49%, transparent 50%);*/
+  /*background-image: linear-gradient(to right, hsl(100, 100%, 50%) 49%, hsl(200, 100%, 50%) 50%);*/
 }
 
 .gradient {
-  background-image: linear-gradient(to right, black, transparent);
+  background-image: linear-gradient(to right, hsl(0, 100%, 50%), hsla(0, 100%, 50%, 0));
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 50vh;
-  width: 20vw;
+  width: 50vw;
   margin: 0 auto;
 }
 
 .gradient--easing {
-  background-image: linear-gradient(to right, hsl(0, 0%, 0%) 0, hsla(0, 0%, 0%, 0.98) 9.5%, hsla(0, 0%, 0%, 0.92) 17.7%, hsla(0, 0%, 0%, 0.86) 24.7%, hsla(0, 0%, 0%, 0.78) 31%, hsla(0, 0%, 0%, 0.7) 36.8%, hsla(0, 0%, 0%, 0.62) 42.3%, hsla(0, 0%, 0%, 0.54) 47.6%, hsla(0, 0%, 0%, 0.45) 52.9%, hsla(0, 0%, 0%, 0.37) 58.2%, hsla(0, 0%, 0%, 0.29) 63.7%, hsla(0, 0%, 0%, 0.21) 69.5%, hsla(0, 0%, 0%, 0.14) 75.8%, hsla(0, 0%, 0%, 0.07) 82.9%, hsla(0, 0%, 0%, 0.02) 91.2%, hsla(0, 0%, 0%, 0) 100%);
-  width: 30vw;
+  background-image: linear-gradient(to right, hsl(0, 100%, 50%) 0, hsla(0, 100%, 50%, 0.917) 5.3%, hsla(0, 100%, 50%, 0.834) 10.6%, hsla(0, 100%, 50%, 0.753) 15.9%, hsla(0, 100%, 50%, 0.672) 21.3%, hsla(0, 100%, 50%, 0.591) 26.8%, hsla(0, 100%, 50%, 0.511) 32.5%, hsla(0, 100%, 50%, 0.433) 38.4%, hsla(0, 100%, 50%, 0.357) 44.5%, hsla(0, 100%, 50%, 0.283) 50.9%, hsla(0, 100%, 50%, 0.213) 57.7%, hsla(0, 100%, 50%, 0.147) 65%, hsla(0, 100%, 50%, 0.089) 72.9%, hsla(0, 100%, 50%, 0.042) 81.4%, hsla(0, 100%, 50%, 0.011) 90.6%, hsla(0, 100%, 50%, 0) 100%);
+  width: 50vw;
 }
