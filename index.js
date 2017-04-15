@@ -9,6 +9,8 @@ const valueParser = require('postcss-value-parser');
 /**
  * Other constants
  */
+const defaultPrecision = 0.1;
+const defaultAlphaDecimals = 3;
 const errorPrefix = 'Error[postcss-easing-gradients]:';
 const supportedGradients = [
   'ease-in-sine-gradient',
@@ -24,8 +26,11 @@ const supportedGradients = [
  * The easing gradient function is a postcss plugin which supports the above
  * mentioned gradient types.
  */
-module.exports = postcss.plugin('easing-gradient', function easingGradient() {
+module.exports =
+postcss.plugin('easing-gradient', function easingGradient(options) {
   return function (css) {
+    options = options || {};
+
     css.walkRules(function (rule) {
       rule.walkDecls(function (decl, i) {
 
@@ -59,13 +64,14 @@ module.exports = postcss.plugin('easing-gradient', function easingGradient() {
                 // If param isn't a color
                 catch(error) {
 
-                  // Test if it's a word or space and assume that's part of the
-                  // direction anotation — e.g. 'to'+' '+'top' or '45deg'
+                  // Test if it's a word or space and before the first color
+                  // and assume that's part of the direction anotation e.g.
+                  // 'to'+' '+'top' or '45deg'
                   if (param.type === 'word' || param.type === 'space') {
                     if (colors.length < 1) {
                       direction += param.value;
 
-                    // But if it happens after the first color then it's maybe
+                    // But if it happens after the first color then it's prolly
                     // a color stop and not something we support
                     } else if (param.type !== 'space') {
                       let errorMsg = `${errorPrefix} Sorry, I don't support `;
@@ -96,7 +102,12 @@ module.exports = postcss.plugin('easing-gradient', function easingGradient() {
               }
 
               // Get the color stops using our new
-              const colorStops = helpers.getColorStops(colors, node.value);
+              const colorStops = helpers.getColorStops(
+                colors,
+                node.value,
+                options.precision || defaultPrecision,
+                options.alphaDecimals || defaultAlphaDecimals
+              );
 
               // Update node
               node.type = 'word';

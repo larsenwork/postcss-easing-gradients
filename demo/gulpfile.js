@@ -36,7 +36,12 @@ function watch() {
 function css() {
   return gulp
     .src(paths.styles.src)
-    .pipe(gulpPostcss([easingGradient]))
+    .pipe(gulpPostcss([
+      easingGradient({
+        precision: 0.15,
+        alphaDecimals: 3
+      })
+    ]))
     .pipe(gulpRename({extname: '.css'}))
     .pipe(gulp.dest(paths.styles.dest));
 };

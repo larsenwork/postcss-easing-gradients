@@ -13,7 +13,6 @@ const easeInOutQuad = require('eases/quad-in-out');
 /**
  * Other constants
  */
-const decimalPrecision = 3;
 const scrimCoordinates = {
   0.00: '0%',
   0.14: '8.52%',
@@ -33,13 +32,13 @@ const scrimCoordinates = {
 /**
  * Calculate the color stops based on start+stopColor in an array and easingType
  */
-exports.getColorStops = function(colors, easingType) {
+exports.getColorStops = function(colors, easingType, delta, alphaDecimals) {
   colors = transparentFix(colors);
-  let gradientCoordinates = getCoordinates(easingType);
+  let gradientCoordinates = getCoordinates(easingType, delta);
   let colorStops = '';
   for (let ammount in gradientCoordinates) {
     let color = Color(colors[1]).mix(Color(colors[0]), ammount);
-    color = roundHslHueAlpha(color.hsl().string());
+    color = roundHslAlpha(color.hsl().string(), alphaDecimals);
     colorStops += `, ${color} ${gradientCoordinates[ammount]}`;
   }
   colorStops += `, ${colors[1]} 100%`;
@@ -60,14 +59,13 @@ function transparentFix(colors) {
  * Get coordinates based on easing function.
  * Delta checks ensures there's roughly the same distance between coordinates.
  */
-function getCoordinates(easingFunction) {
+function getCoordinates(easingFunction, delta) {
   if (easingFunction === 'scrim-gradient') return scrimCoordinates;
 
   const yIncrements = 0.001;
   const deltaTolerance = 0.01;
   const deltaAdjust = 0.001;
 
-  let delta = 0.1;
   let coordinates = {};
   let x = 0;
   let y = 0;
@@ -131,8 +129,8 @@ function ease(x, type) {
 /**
  * Convert decimal number to percentage string
  */
-function getPercentage (num) {
-  return parseFloat((num * 100).toFixed(decimalPrecision)) + '%';
+function getPercentage(number) {
+  return round10(number * 100, -1) + '%';
 };
 
 /**
@@ -143,15 +141,15 @@ function isFarEnough(x, y, xOld, yOld, delta) {
 };
 
 /**
- * Round hue and alpha in hsl colors to decimalPrecision
+ * Round alpha in hsl colors to alphaDecimals
  */
-function roundHslHueAlpha(color) {
+function roundHslAlpha(color, alphaDecimals) {
   let prefix = color.substring(0, color.indexOf('('));
   let values = color
     .substring(color.indexOf('(') + 1, color.indexOf(')'))
     .split(',')
     .map(string => string.indexOf('%') === -1
-      ? round10(Number(string), -decimalPrecision)
+      ? round10(Number(string), -alphaDecimals)
       : string.trim()
     );
   return `${prefix}(${values.join(', ')})`;
