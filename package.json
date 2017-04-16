@@ -28,5 +28,25 @@
     "postcss": "^5.2.16",
     "postcss-value-parser": "^3.3.0",
     "round10": "^1.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "extends": "airbnb",
+    "rules": {
+      "no-confusing-arrow": 0,
+      "no-console": 0,
+      "no-param-reassign": ["error", {"props": false }],
+      "comma-dangle": ["error", {"functions": "ignore"}]
+    }
   }
 }
