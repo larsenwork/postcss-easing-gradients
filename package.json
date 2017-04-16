@@ -2,7 +2,7 @@
   "name": "postcss-easing-gradients",
   "version": "1.2.0",
   "description": "PostCSS plugin to create smooth linear-gradients that approximate easing functions.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,28 +25,30 @@
   "dependencies": {
     "color": "^1.0.3",
     "eases": "^1.0.8",
+    "math-hypot": "^1.0.0",
     "postcss": "^5.2.16",
     "postcss-value-parser": "^3.3.0",
     "round10": "^1.0.3"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
-    "eslint-config-airbnb": "^14.1.0",
+    "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.3"
+    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
   },
   "eslintConfig": {
     "env": {
       "browser": true,
       "node": true
     },
-    "extends": "airbnb",
+    "extends": "standard",
     "rules": {
-      "no-confusing-arrow": 0,
-      "no-console": 0,
-      "no-param-reassign": ["error", {"props": false }],
-      "comma-dangle": ["error", {"functions": "ignore"}]
+      "max-len": [
+        "error",
+        120
+      ]
     }
   }
 }

@@ -1,6 +1,9 @@
 # PostCSS Easing Gradients
 PostCSS plugin to create smooth linear-gradients that approximate easing functions.
 
+[![js-sta
+ndard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](http://standardjs.com)
+
 The syntax is `<gradient-type>([ <direction>,]? <start-color>, <stop-color>)` where
 * `gradient-type` is one of the supported gradient types
 * `direction` shares syntax with `linear-gradient` and is optional
