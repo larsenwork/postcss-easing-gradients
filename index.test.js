@@ -1,5 +1,3 @@
-'use strict'
-
 const postcss = require('postcss')
 const plugin = require('./')
 
