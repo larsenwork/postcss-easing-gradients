@@ -10,11 +10,22 @@
 
 ```css
 .demo {
-  background: scrim-gradient(black, transparent);
+  background: scrim-gradient(
+    black,
+    transparent
+  );
 
-  background: ease-in-out-quad-gradient(to bottom left, #bada55, olive);
+  background: ease-in-out-quad-gradient(
+    to bottom left,
+    #bada55,
+    olive
+  );
 
-  background: ease-in-sine-gradient(23deg, hsla(300, 80%, 50%, 0.7), rgb(120, 140, 255));
+  background: ease-in-sine-gradient(
+    23deg,
+    hsla(300, 80%, 50%, 0.7),
+    rgb(120, 140, 255)
+  );
 }
 ```
 becomes
