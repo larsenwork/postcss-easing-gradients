@@ -3,6 +3,8 @@
 # PostCSS Easing Gradients
 
 [![Build Status][ci-img]][ci]
+[![NPM Version][npm-img]][npm]
+[![NPM Monthly Downloads][dm-img]][npm]
 
 </div>
 
@@ -137,3 +139,6 @@ Are more than welcome. Code is linted using:
 [ci]:      https://travis-ci.org/larsenwork/postcss-easing-gradients
 [js-img]:  https://cdn.rawgit.com/feross/standard/master/badge.svg
 [js]:      https://standardjs.com
+[npm-img]: https://img.shields.io/npm/v/postcss-easing-gradients.svg
+[npm]:     https://www.npmjs.com/package/postcss-easing-gradients
+[dm-img]:  https://img.shields.io/npm/dm/postcss-easing-gradients.svg
