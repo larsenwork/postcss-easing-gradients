@@ -2,9 +2,8 @@
   "name": "postcss-easing-gradients",
   "version": "1.2.2",
   "description": "PostCSS plugin to create smooth linear-gradients that approximate easing functions.",
-  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest && eslint *.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/larsenwork/postcss-easing-gradients/issues"
   },
-  "homepage": "https://github.com/larsenwork/postcss-easing-gradients#readme",
+  "homepage": "https://github.com/larsenwork/postcss-easing-gradients",
   "dependencies": {
     "camelcase": "^4.1.0",
     "color": "^1.0.3",
@@ -37,12 +36,12 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-node": "^4.2.2",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint-plugin-standard": "^3.0.1",
+    "jest": "^18.0.0"
   },
   "eslintConfig": {
     "env": {
-      "browser": true,
-      "node": true
+      "jest": true
     },
     "extends": "standard",
     "rules": {

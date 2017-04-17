@@ -1,5 +1,5 @@
-const ColorStops = require('./colorStops.js')
-const helpers = require('./helpers.js')
+const ColorStops = require('./lib/colorStops.js')
+const helpers = require('./lib/helpers.js')
 const Color = require('color')
 const postcss = require('postcss')
 const valueParser = require('postcss-value-parser')
