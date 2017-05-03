@@ -125,6 +125,9 @@ scrim-gradient
 * `precision: 0.1` is the default value and creates ~17 color stops. I wouldn't recommending using anything above 0.2 as banding becomes very obvious.
 * `alphaDecimals: 3` is the default number of decimals for alpha values and I wouldn't recommend changing it. Increase it for greater precision.
 
+## Preview
+![preview](assets/preview.jpg)
+
 ## Demo
 You can try it out by running `npm install` and `gulp` in the demo folder.
 
