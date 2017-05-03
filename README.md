@@ -126,7 +126,9 @@ scrim-gradient
 * `alphaDecimals: 3` is the default number of decimals for alpha values and I wouldn't recommend changing it. Increase it for greater precision.
 
 ## Preview
+Linear gradient
 ![preview](assets/preview.jpg)
+Easing gradient
 
 ## Demo
 You can try it out by running `npm install` and `gulp` in the demo folder.
