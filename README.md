@@ -126,7 +126,7 @@ scrim-gradient
 * `alphaDecimals: 3` is the default number of decimals for alpha values and I wouldn't recommend changing it. Increase it for greater precision.
 
 ## Preview
-![preview](assets/preview.jpg)
+![preview](assets/linear-scrim-easeoutsine.gif)
 
 
 ## Demo
