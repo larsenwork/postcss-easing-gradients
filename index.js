@@ -16,7 +16,7 @@ module.exports = postcss.plugin('easing-gradient', (opts) => {
     const options = opts || {}
     css.walkRules((rule) => {
       rule.walkDecls((decl) => {
-        // If declarations value contains a supported gradient.
+        // If declaration value contains a supported gradient.
         if (helpers.isEasingGradient(decl.value.substring(0, decl.value.indexOf('(')))) {
           // Parse the declaration and walk through the nodes — https://github.com/TrySound/postcss-value-parser.
           const parsedValue = valueParser(decl.value)
