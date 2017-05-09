@@ -9,5 +9,6 @@ yarn.lock
 *.test.js
 .travis.yml
 
-# Demo folder
+# Demo and assets folder
 demo
+assets
