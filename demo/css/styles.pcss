@@ -8,16 +8,16 @@ body {
 }
 
 .gradient {
-  background-image: linear-gradient(to right, black, transparent);
+  background-image: linear-gradient(to right, green, steps(4, none), red);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 50vh;
   width: 50vw;
-  margin-left: 25vw;
 }
 
 .gradient--easing {
-  background-image: scrim-gradient(to right, black, transparent);
-  width: 65vw;
+  background: linear-gradient(to right, black, cubic-bezier(0.48, 0.30, 0.64, 1.00), transparent);
+  width: 75vw;
+  opacity: 0.8;
 }
