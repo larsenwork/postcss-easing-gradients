@@ -35,7 +35,7 @@ module.exports = postcss.plugin('easing-gradient', (opts) => {
                     const colorStops = getColorStops(colors, coordinates, options.alphaDecimals || defaultAlphaDecimals)
                     param = colorStops.join(', ')
                   } catch (error) {
-                    console.log(`While looking at ${param} we got:`, error)
+                    console.log(`While looking at ${param} we got an error. Check the color before or after it.`)
                   }
                 }
                 return param
