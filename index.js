@@ -39,10 +39,7 @@ module.exports = postcss.plugin('easing-gradient', (opts) => {
                   }
                 }
                 return param
-              })
-              // Filter out empty params (because linear returns an empty array of color stops)
-              gradientParams = gradientParams.filter(param => param !== '')
-
+              }).filter(param => param !== '') // Filter out empty params
               // Update node
               node.type = 'word'
               node.value = `linear-gradient(${gradientParams.join(', ')})`
