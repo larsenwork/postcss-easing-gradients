@@ -30,7 +30,9 @@
   );
 }
 ```
+
 becomes
+
 ```css
 .demo {
   background: linear-gradient(
@@ -97,18 +99,21 @@ becomes
 ```js
 postcss([ require('postcss-easing-gradients') ])
 ```
+
 See [PostCSS] docs for examples for your environment.
 
 ## Syntax
 
 The syntax is `<gradient-type>([ <direction>,]? <start-color>, <stop-color>)` where
+
 * `gradient-type` is one of the supported gradient types
 * `direction` shares syntax with `linear-gradient` and is optional
 * `start-color` and `stop-color` are css colors in any format
 
-*Note that it's exactly two colors and it doesn't support custom color stop locations.*
+Note that it's exactly two colors and it doesn't support custom color stop locations.
 
 ## Supported Gradient Types
+
 ```css
 ease-in-sine-gradient
 ease-out-sine-gradient
@@ -119,24 +124,26 @@ ease-in-out-quad-gradient
 scrim-gradient
 ```
 
-*Scrim is a custom easing inspired by Material Design text protection scrims*
-
 ## Options
+
 * `precision: 0.1` is the default value and creates ~17 color stops. I wouldn't recommending using anything above 0.2 as banding becomes very obvious.
 * `alphaDecimals: 3` is the default number of decimals for alpha values and I wouldn't recommend changing it. Increase it for greater precision.
 
 ## Preview
+
 ![preview](assets/linear-scrim-easeoutsine.gif)
 
-
 ## Demo
-You can try it out by running `npm install` and `gulp` in the demo folder.
+
+Make sure that you have gulp cli installed and then `cd demo`, `npm install` and `gulp`.
+
+If you want to develop then `npm link` in project root and then `npm link postcss-easing-gradients`
 
 ## Contributions
+
 Are more than welcome. Code is linted using:
 
 [![js-standard-style][js-img]][js]
-
 
 [PostCSS]: https://github.com/postcss/postcss
 [ci-img]:  https://img.shields.io/travis/larsenwork/postcss-easing-gradients.svg

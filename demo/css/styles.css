@@ -8,16 +8,16 @@ body {
 }
 
 .gradient {
-  background-image: linear-gradient(to right, green, hsl(80.2, 100%, 18.8%) 0%, hsl(80.2, 100%, 18.8%) 33.3%, hsl(30.1, 100%, 25%) 33.3%, hsl(30.1, 100%, 25%) 66.7%, hsl(10, 100%, 37.5%) 66.7%, hsl(10, 100%, 37.5%) 100%, red);
+  background-image: linear-gradient(to right, black, transparent);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 50vh;
-  width: 50vw;
+  width: 100vw;
 }
 
 .gradient--easing {
-  background: linear-gradient(to right, black, hsla(0, 0%, 0%, 0.945) 7.9%, hsla(0, 0%, 0%, 0.883) 15.3%, hsla(0, 0%, 0%, 0.815) 22.2%, hsla(0, 0%, 0%, 0.743) 28.7%, hsla(0, 0%, 0%, 0.667) 34.8%, hsla(0, 0%, 0%, 0.589) 40.6%, hsla(0, 0%, 0%, 0.509) 46.2%, hsla(0, 0%, 0%, 0.429) 51.7%, hsla(0, 0%, 0%, 0.348) 57.2%, hsla(0, 0%, 0%, 0.269) 62.8%, hsla(0, 0%, 0%, 0.193) 68.7%, hsla(0, 0%, 0%, 0.121) 75.2%, hsla(0, 0%, 0%, 0.059) 82.6%, hsla(0, 0%, 0%, 0.015) 91.2%, transparent);
-  width: 75vw;
-  opacity: 0.8;
+  background: linear-gradient(to right, black, hsla(0, 0%, 0%, 0.988) 7.7%, hsla(0, 0%, 0%, 0.956) 14.8%, hsla(0, 0%, 0%, 0.91) 21%, hsla(0, 0%, 0%, 0.854) 26.5%, hsla(0, 0%, 0%, 0.794) 31.4%, hsla(0, 0%, 0%, 0.731) 35.9%, hsla(0, 0%, 0%, 0.667) 40.1%, hsla(0, 0%, 0%, 0.599) 44.2%, hsla(0, 0%, 0%, 0.533) 48.1%, hsla(0, 0%, 0%, 0.466) 52%, hsla(0, 0%, 0%, 0.397) 56%, hsla(0, 0%, 0%, 0.33) 60.1%, hsla(0, 0%, 0%, 0.266) 64.3%, hsla(0, 0%, 0%, 0.203) 68.8%, hsla(0, 0%, 0%, 0.143) 73.7%, hsla(0, 0%, 0%, 0.089) 79.2%, hsla(0, 0%, 0%, 0.043) 85.4%, hsla(0, 0%, 0%, 0.011) 92.5%, transparent);
+  width: 100vw;
+  opacity: 1;
 }

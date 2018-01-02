@@ -18,7 +18,7 @@ module.exports = postcss.plugin('easing-gradient', (opts) => {
       rule.walkDecls((decl) => {
         // If declaration value contains a linear-gradient.
         if (decl.value.includes('linear-gradient')) {
-          // Parse the declaration and walk through the nodes — https://github.com/TrySound/postcss-value-parser.
+          // Parse the declaration and walk through the nodes - https://github.com/TrySound/postcss-value-parser.
           const parsedValue = valueParser(decl.value)
           parsedValue.walk((node) => {
             // Only modify gradient as the value can contain more e.g. 'linear-gradient(black, pink) center'.
