@@ -5,6 +5,7 @@
 [![Build Status][ci-img]][ci]
 [![NPM Version][npm-img]][npm]
 [![NPM Monthly Downloads][dm-img]][npm]
+[![JavaScript Style Guide][std-img]][std]
 
 ⚠️ The [syntax](#syntax) has changed substantially in `^v.2.0.0` ⚠️
 
@@ -15,7 +16,7 @@ Visual examples and online editor on [larsenwork.com/easing-gradients](https://l
 
 <br>
 
-## Examples
+## Code Examples
 
 ```css
 .cubic-bezier {
@@ -131,27 +132,12 @@ I wouldn't recommend tweaking from default values but:
 
 * `precision: 0.1` is the default and creates ~17 color stops. A higher number creates a more "low poly" gradient and banding becomes very visible when using anything above 0.2.
 * `alphaDecimals: 5` is the default. A lower number can result in banding.
-
-<br>
-
-## Demo
-
-Make sure that you have gulp cli installed and then `cd demo`, `npm install` and `gulp`.
-
-If you want to develop then `npm link` in project root and then `npm link postcss-easing-gradients`
-
-<br>
-
-## Contributions
-
-Are more than welcome. Code is linted using:
-
-[![js-standard-style][js-img]][js]
+* `colorMode: 'lrgb'` is the default color space used for interpolation and is closest to what most browsers use. Other options are `'rgb', 'hsl', 'lab' and 'lch'` as per [chromajs documentation](http://gka.github.io/chroma.js/#chroma-mix)
 
 [ci-img]:  https://img.shields.io/travis/larsenwork/postcss-easing-gradients.svg
 [ci]:      https://travis-ci.org/larsenwork/postcss-easing-gradients
-[js-img]:  https://cdn.rawgit.com/feross/standard/master/badge.svg
-[js]:      https://standardjs.com
 [npm-img]: https://img.shields.io/npm/v/postcss-easing-gradients.svg
 [npm]:     https://www.npmjs.com/package/postcss-easing-gradients
 [dm-img]:  https://img.shields.io/npm/dm/postcss-easing-gradients.svg
+[std-img]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
+[std]:     https://standardjs.com

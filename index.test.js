@@ -15,7 +15,7 @@ function run (input, output, opts) {
 it('create a steps gradient with direction', () => {
   return run(
     'a{ background: linear-gradient(to right, green, steps(4, skip-none), red); }',
-    'a{ background: linear-gradient(to right, hsl(120, 100%, 25.1%), hsl(120, 100%, 25.1%) 25%, hsl(60.23, 100%, 16.73%) 25%, hsl(60.23, 100%, 16.73%) 50%, hsl(15.06, 100%, 33.33%) 50%, hsl(15.06, 100%, 33.33%) 75%, hsl(0, 100%, 50%) 75%, hsl(0, 100%, 50%)); }', // eslint-disable-line max-len
+    'a{ background: linear-gradient(to right, hsl(120, 100%, 25.1%), hsl(120, 100%, 25.1%) 25%, hsl(42.59, 100%, 28.87%) 25%, hsl(42.59, 100%, 28.87%) 50%, hsl(21.3, 100%, 40.82%) 50%, hsl(21.3, 100%, 40.82%) 75%, hsl(0, 100%, 50%) 75%, hsl(0, 100%, 50%)); }', // eslint-disable-line max-len
     { }
   )
 })
@@ -29,7 +29,7 @@ it('create a cubic bezier gradient with direction', () => {
 it('create an ease gradient with direction', () => {
   return run(
     'a{ background: linear-gradient(to right, green, ease, red); }',
-    'a{ background: linear-gradient(to right, hsl(120, 100%, 25.1%), hsl(111.85, 100%, 23.5%) 7.8%, hsl(98.92, 100%, 21.34%) 13.2%, hsl(82.02, 100%, 19.05%) 17.6%, hsl(60.02, 100%, 16.71%) 21.7%, hsl(40.57, 100%, 21.3%) 25.8%, hsl(28.11, 100%, 25.86%) 30.2%, hsl(19.54, 100%, 30.32%) 35.1%, hsl(13.47, 100%, 34.55%) 40.6%, hsl(9.01, 100%, 38.49%) 46.9%, hsl(5.73, 100%, 42.01%) 54.1%, hsl(3.36, 100%, 44.98%) 62.2%, hsl(1.74, 100%, 47.28%) 71.1%, hsl(0.7, 100%, 48.86%) 80.6%, hsl(0.15, 100%, 49.74%) 90.5%, hsl(0, 100%, 50%)); }', // eslint-disable-line max-len
+    'a{ background: linear-gradient(to right, hsl(120, 100%, 25.1%), hsl(88.79, 100%, 24.28%) 7.8%, hsl(69.81, 100%, 23.14%) 13.2%, hsl(53.43, 100%, 24.55%) 17.6%, hsl(42.52, 100%, 28.9%) 21.7%, hsl(34.96, 100%, 32.64%) 25.8%, hsl(29.1, 100%, 35.96%) 30.2%, hsl(24.26, 100%, 38.94%) 35.1%, hsl(20.14, 100%, 41.56%) 40.6%, hsl(16.47, 100%, 43.87%) 46.9%, hsl(13.13, 100%, 45.83%) 54.1%, hsl(10.07, 100%, 47.42%) 62.2%, hsl(7.23, 100%, 48.62%) 71.1%, hsl(4.6, 100%, 49.43%) 80.6%, hsl(2.16, 100%, 49.87%) 90.5%, hsl(0, 100%, 50%)); }', // eslint-disable-line max-len
     { }
   )
 })
@@ -51,7 +51,13 @@ it('create a cubic-bezier gradient with .3 precision', () => {
     { precision: 0.3 }
   )
 })
-
+it('create an ease gradient with hsl colorMode', () => {
+  return run(
+    'a{ background: linear-gradient(to right, green, ease, red); }',
+    'a{ background: linear-gradient(to right, hsl(120, 100%, 25.1%), hsl(112.5, 100%, 26.67%) 7.8%, hsl(102.04, 100%, 28.82%) 13.2%, hsl(91.32, 100%, 31.18%) 17.6%, hsl(79.76, 100%, 33.33%) 21.7%, hsl(68.9, 100%, 35.69%) 25.8%, hsl(57.84, 100%, 38.04%) 30.2%, hsl(47.12, 100%, 40.2%) 35.1%, hsl(36.94, 100%, 42.35%) 40.6%, hsl(27.61, 100%, 44.31%) 46.9%, hsl(19.15, 100%, 46.08%) 54.1%, hsl(12.15, 100%, 47.45%) 62.2%, hsl(6.53, 100%, 48.63%) 71.1%, hsl(2.86, 100%, 49.41%) 80.6%, hsl(0.71, 100%, 49.8%) 90.5%, hsl(0, 100%, 50%)); }', // eslint-disable-line max-len
+    { colorMode: 'hsl' }
+  )
+})
 /**
  * Ignore incorrect/unsuported input
  */

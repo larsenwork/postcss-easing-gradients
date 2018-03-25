@@ -29,7 +29,7 @@ module.exports = postcss.plugin('easing-gradient', (options = {}) => {
                   try {
                     const colors = [gradientParams[i - 1], gradientParams[i + 1]]
                     const coordinates = easingCoordinates.easingCoordinates(param, options.precision)
-                    const colorStops = getColorStops(colors, coordinates, options.alphaDecimals)
+                    const colorStops = getColorStops(colors, coordinates, options.alphaDecimals, options.colorMode)
                     // Update node
                     node.type = 'word'
                     // Assume if it has 4 params it's because the first one is the direction
