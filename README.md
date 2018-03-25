@@ -2,19 +2,16 @@
 
 # PostCSS Easing Gradients
 
+⚠️ The [syntax](#syntax) has changed substantially in `^v.2.0.0` ⚠️
+
 [![Build Status][ci-img]][ci]
 [![NPM Version][npm-img]][npm]
 [![NPM Monthly Downloads][dm-img]][npm]
 
-</div>
-
-<br>
-
 [PostCSS](https://github.com/postcss/postcss) plugin to create smooth linear-gradients that approximate easing functions.
 
 Visual examples and online editor on [larsenwork.com/easing-gradients](https://larsenwork.com/easing-gradients/)
-
-⚠️ The [syntax](#syntax) has changed substantially in `^v.2.0.0` ⚠️
+</div>
 
 <br>
 
