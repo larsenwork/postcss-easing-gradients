@@ -141,16 +141,16 @@ is the default. A lower number can result in banding.
 
 is the default color space used for interpolation and is closest to what most browsers use. Other options are `'rgb', 'hsl', 'lab' and 'lch'` as per [chromajs documentation](http://gka.github.io/chroma.js/#chroma-mix)
 
-[ci-img]:  https://img.shields.io/travis/larsenwork/postcss-easing-gradients.svg?branch=master
+[ci-img]:  https://img.shields.io/travis/larsenwork/postcss-easing-gradients.svg?branch=master&longCache=true&style=flat-square
 [ci]:      https://travis-ci.org/larsenwork/postcss-easing-gradients
-[npm-img]: https://img.shields.io/npm/v/postcss-easing-gradients.svg
+[npm-img]: https://img.shields.io/npm/v/postcss-easing-gradients.svg?longCache=true&style=flat-square
 [npm]:     https://www.npmjs.com/package/postcss-easing-gradients
-[dm-img]:  https://img.shields.io/npm/dm/postcss-easing-gradients.svg
-[dpd-img]: https://img.shields.io/david/larsenwork/postcss-easing-gradients.svg
+[dm-img]:  https://img.shields.io/npm/dm/postcss-easing-gradients.svg?longCache=true&style=flat-square
+[dpd-img]: https://img.shields.io/david/larsenwork/postcss-easing-gradients.svg?longCache=true&style=flat-square
 [dpd]:     https://david-dm.org/larsenwork/postcss-easing-gradients
-[std-img]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
+[std-img]: https://img.shields.io/badge/code_style-standard-brightgreen.svg?longCache=true&style=flat-square
 [std]:     https://standardjs.com
-[mit-img]: https://img.shields.io/github/license/larsenwork/postcss-easing-gradients.svg
+[mit-img]: https://img.shields.io/github/license/larsenwork/postcss-easing-gradients.svg?longCache=true&style=flat-square
 [mit]:     https://github.com/larsenwork/postcss-easing-gradients/blob/master/LICENSE
-[twt-img]: https://img.shields.io/twitter/follow/larsenwork.svg?label=follow+larsenwork
+[twt-img]: https://img.shields.io/twitter/follow/larsenwork.svg?label=follow+larsenwork&longCache=true&style=flat-square
 [twt]:     https://twitter.com/larsenwork
