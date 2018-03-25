@@ -28,7 +28,7 @@ Visual examples and online editor on [larsenwork.com/easing-gradients](https://l
   /* => */
   background: linear-gradient(
     to bottom,
-    hsl(0, 0%, 0%) 0%,
+    hsl(0, 0%, 0%),
     hsla(0, 0%, 0%, 0.94505) 7.9%,
     hsla(0, 0%, 0%, 0.88294) 15.3%,
     hsla(0, 0%, 0%, 0.81522) 22.2%,
@@ -43,7 +43,7 @@ Visual examples and online editor on [larsenwork.com/easing-gradients](https://l
     hsla(0, 0%, 0%, 0.12126) 75.2%,
     hsla(0, 0%, 0%, 0.05882) 82.6%,
     hsla(0, 0%, 0%, 0.01457) 91.2%,
-    hsla(0, 0%, 0%, 0) 100%
+    hsla(0, 0%, 0%, 0)
   );
 }
 
@@ -55,7 +55,7 @@ Visual examples and online editor on [larsenwork.com/easing-gradients](https://l
   );
   /* => */
   background: linear-gradient(
-    hsl(120, 100%, 25.1%) 0%,
+    hsl(120, 100%, 25.1%),
     hsl(111.85, 100%, 23.5%) 7.8%,
     hsl(98.92, 100%, 21.34%) 13.2%,
     hsl(82.02, 100%, 19.05%) 17.6%,
@@ -70,7 +70,7 @@ Visual examples and online editor on [larsenwork.com/easing-gradients](https://l
     hsl(1.74, 100%, 47.28%) 71.1%,
     hsl(0.7, 100%, 48.86%) 80.6%,
     hsl(0.15, 100%, 49.74%) 90.5%,
-    hsl(0, 100%, 50%) 100%
+    hsl(0, 100%, 50%)
   );
 }
 
@@ -84,14 +84,14 @@ Visual examples and online editor on [larsenwork.com/easing-gradients](https://l
   /* => */
   background: linear-gradient(
     to right,
-    hsl(120, 100%, 25.1%) 0%,
+    hsl(120, 100%, 25.1%),
     hsl(120, 100%, 25.1%) 25%,
     hsl(60.23, 100%, 16.73%) 25%,
     hsl(60.23, 100%, 16.73%) 50%,
     hsl(15.06, 100%, 33.33%) 50%,
     hsl(15.06, 100%, 33.33%) 75%,
     hsl(0, 100%, 50%) 75%,
-    hsl(0, 100%, 50%) 100%
+    hsl(0, 100%, 50%)
   );
 }
 ```
@@ -100,7 +100,7 @@ Visual examples and online editor on [larsenwork.com/easing-gradients](https://l
 
 ## Syntax
 
-Ccurrently only a subset of the [full syntax](https://github.com/w3c/csswg-drafts/issues/1332#issuecomment-299990698) is supported:
+Currently a subset of the [full syntax](https://github.com/w3c/csswg-drafts/issues/1332#issuecomment-299990698) is supported:
 
 ```xml
 linear-gradient(
