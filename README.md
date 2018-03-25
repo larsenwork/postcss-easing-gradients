@@ -1,18 +1,19 @@
-<div align="center" markdown="1">
-
 # PostCSS Easing Gradients
 
-[![Build Status][ci-img]][ci]
 [![NPM Version][npm-img]][npm]
 [![NPM Monthly Downloads][dm-img]][npm]
+[![Build Status][ci-img]][ci]
+[![Dependency status][dpd-img]][dpd]
+<br>
+[![MIT License][mit-img]][mit]
 [![JavaScript Style Guide][std-img]][std]
+[![Follow Larsenwork on Twitter][twt-img]][twt]
 
 ⚠️ The [syntax](#syntax) has changed substantially in `^v.2.0.0` ⚠️
 
 [PostCSS](https://github.com/postcss/postcss) plugin to create smooth linear-gradients that approximate easing functions.
 
 Visual examples and online editor on [larsenwork.com/easing-gradients](https://larsenwork.com/easing-gradients/)
-</div>
 
 <br>
 
@@ -128,16 +129,28 @@ See [PostCSS Usage](https://github.com/postcss/postcss#usage) docs for examples 
 
 ## Options
 
-I wouldn't recommend tweaking from default values but:
+### precision: 0.1
 
-* `precision: 0.1` is the default and creates ~17 color stops. A higher number creates a more "low poly" gradient and banding becomes very visible when using anything above 0.2.
-* `alphaDecimals: 5` is the default. A lower number can result in banding.
-* `colorMode: 'lrgb'` is the default color space used for interpolation and is closest to what most browsers use. Other options are `'rgb', 'hsl', 'lab' and 'lch'` as per [chromajs documentation](http://gka.github.io/chroma.js/#chroma-mix)
+is the default and creates ~17 color stops. A higher number creates a more "low poly" gradient and banding becomes very visible when using anything above 0.2.
 
-[ci-img]:  https://img.shields.io/travis/larsenwork/postcss-easing-gradients.svg
+### alphaDecimals: 5
+
+is the default. A lower number can result in banding.
+
+### colorMode: 'lrgb'
+
+is the default color space used for interpolation and is closest to what most browsers use. Other options are `'rgb', 'hsl', 'lab' and 'lch'` as per [chromajs documentation](http://gka.github.io/chroma.js/#chroma-mix)
+
+[ci-img]:  https://img.shields.io/travis/larsenwork/postcss-easing-gradients.svg?branch=master
 [ci]:      https://travis-ci.org/larsenwork/postcss-easing-gradients
 [npm-img]: https://img.shields.io/npm/v/postcss-easing-gradients.svg
 [npm]:     https://www.npmjs.com/package/postcss-easing-gradients
 [dm-img]:  https://img.shields.io/npm/dm/postcss-easing-gradients.svg
+[dpd-img]: https://img.shields.io/david/larsenwork/postcss-easing-gradients.svg
+[dpd]:     https://david-dm.org/larsenwork/postcss-easing-gradients
 [std-img]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
 [std]:     https://standardjs.com
+[mit-img]: https://img.shields.io/github/license/larsenwork/postcss-easing-gradients.svg
+[mit]:     https://github.com/larsenwork/postcss-easing-gradients/blob/master/LICENSE
+[twt-img]: https://img.shields.io/twitter/follow/larsenwork.svg?label=follow+larsenwork
+[twt]:     https://twitter.com/larsenwork

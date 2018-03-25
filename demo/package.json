@@ -1,6 +1,6 @@
 {
   "name": "pretty_css_gradients",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Using postcss-easing-gradients to create the smoothest gradients.",
   "main": "index.js",
   "scripts": {
@@ -9,11 +9,11 @@
   "author": "Andreas Larsen",
   "license": "MIT",
   "devDependencies": {
-    "browser-sync": "^2.18.8",
-    "easing-coordinates": "^1.0.1",
+    "browser-sync": "^2.23.6",
+    "easing-coordinates": "^1.0.2",
     "gulp": "^4.0.0",
-    "gulp-postcss": "^6.4.0",
+    "gulp-postcss": "^7.0.1",
     "gulp-rename": "^1.2.2",
-    "postcss-easing-gradients": "^1.0.0"
+    "postcss-easing-gradients": "^2.0.0"
   }
 }
