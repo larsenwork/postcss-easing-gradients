@@ -14,22 +14,22 @@ function run (input, output, opts) {
  */
 it('create a steps gradient with direction', () => {
   return run(
-    'a{ background: linear-gradient(to right, green, steps(4, none), red); }',
-    'a{ background: linear-gradient(to right, green, hsl(80.2, 100%, 18.8%) 0%, hsl(80.2, 100%, 18.8%) 33.3%, hsl(30.1, 100%, 25%) 33.3%, hsl(30.1, 100%, 25%) 66.7%, hsl(10, 100%, 37.5%) 66.7%, hsl(10, 100%, 37.5%) 100%, red); }', // eslint-disable-line max-len
+    'a{ background: linear-gradient(to right, green, steps(4, skip-none), red); }',
+    'a{ background: linear-gradient(to right, hsl(120, 100%, 25.1%) 0%, hsl(120, 100%, 25.1%) 25%, hsl(60.23, 100%, 16.73%) 25%, hsl(60.23, 100%, 16.73%) 50%, hsl(15.06, 100%, 33.33%) 50%, hsl(15.06, 100%, 33.33%) 75%, hsl(0, 100%, 50%) 75%, hsl(0, 100%, 50%) 100%); }', // eslint-disable-line max-len
     { }
   )
 })
 it('create a cubic bezier gradient with direction', () => {
   return run(
     'a{ background: linear-gradient(to right, black, cubic-bezier(0.48, 0.30, 0.64, 1.00), transparent); }',
-    'a{ background: linear-gradient(to right, black, hsla(0, 0%, 0%, 0.945) 7.9%, hsla(0, 0%, 0%, 0.883) 15.3%, hsla(0, 0%, 0%, 0.815) 22.2%, hsla(0, 0%, 0%, 0.743) 28.7%, hsla(0, 0%, 0%, 0.667) 34.8%, hsla(0, 0%, 0%, 0.589) 40.6%, hsla(0, 0%, 0%, 0.509) 46.2%, hsla(0, 0%, 0%, 0.429) 51.7%, hsla(0, 0%, 0%, 0.348) 57.2%, hsla(0, 0%, 0%, 0.269) 62.8%, hsla(0, 0%, 0%, 0.193) 68.7%, hsla(0, 0%, 0%, 0.121) 75.2%, hsla(0, 0%, 0%, 0.059) 82.6%, hsla(0, 0%, 0%, 0.015) 91.2%, transparent); }', // eslint-disable-line max-len
+    'a{ background: linear-gradient(to right, hsl(0, 0%, 0%) 0%, hsla(0, 0%, 0%, 0.94505) 7.9%, hsla(0, 0%, 0%, 0.88294) 15.3%, hsla(0, 0%, 0%, 0.81522) 22.2%, hsla(0, 0%, 0%, 0.7426) 28.7%, hsla(0, 0%, 0%, 0.66692) 34.8%, hsla(0, 0%, 0%, 0.58891) 40.6%, hsla(0, 0%, 0%, 0.50925) 46.2%, hsla(0, 0%, 0%, 0.42866) 51.7%, hsla(0, 0%, 0%, 0.34817) 57.2%, hsla(0, 0%, 0%, 0.2693) 62.8%, hsla(0, 0%, 0%, 0.19309) 68.7%, hsla(0, 0%, 0%, 0.12126) 75.2%, hsla(0, 0%, 0%, 0.05882) 82.6%, hsla(0, 0%, 0%, 0.01457) 91.2%, hsla(0, 0%, 0%, 0) 100%); }', // eslint-disable-line max-len
     { }
   )
 })
 it('create an ease gradient with direction', () => {
   return run(
     'a{ background: linear-gradient(to right, green, ease, red); }',
-    'a{ background: linear-gradient(to right, green, hsl(111.8, 100%, 23.5%) 7.8%, hsl(98.9, 100%, 21.3%) 13.2%, hsl(82, 100%, 19%) 17.6%, hsl(60, 100%, 16.7%) 21.7%, hsl(40.6, 100%, 21.3%) 25.8%, hsl(28.1, 100%, 25.9%) 30.2%, hsl(19.5, 100%, 30.3%) 35.1%, hsl(13.5, 100%, 34.6%) 40.6%, hsl(9, 100%, 38.5%) 46.9%, hsl(5.7, 100%, 42%) 54.1%, hsl(3.4, 100%, 45%) 62.2%, hsl(1.7, 100%, 47.3%) 71.1%, hsl(0.7, 100%, 48.9%) 80.6%, hsl(0.2, 100%, 49.7%) 90.5%, red); }', // eslint-disable-line max-len
+    'a{ background: linear-gradient(to right, hsl(120, 100%, 25.1%) 0%, hsl(111.85, 100%, 23.5%) 7.8%, hsl(98.92, 100%, 21.34%) 13.2%, hsl(82.02, 100%, 19.05%) 17.6%, hsl(60.02, 100%, 16.71%) 21.7%, hsl(40.57, 100%, 21.3%) 25.8%, hsl(28.11, 100%, 25.86%) 30.2%, hsl(19.54, 100%, 30.32%) 35.1%, hsl(13.47, 100%, 34.55%) 40.6%, hsl(9.01, 100%, 38.49%) 46.9%, hsl(5.73, 100%, 42.01%) 54.1%, hsl(3.36, 100%, 44.98%) 62.2%, hsl(1.74, 100%, 47.28%) 71.1%, hsl(0.7, 100%, 48.86%) 80.6%, hsl(0.15, 100%, 49.74%) 90.5%, hsl(0, 100%, 50%) 100%); }', // eslint-disable-line max-len
     { }
   )
 })
@@ -40,15 +40,15 @@ it('create an ease gradient with direction', () => {
 it('create a cubic bezier gradient with 1 alphaDecimal', () => {
   return run(
     'a{ background: linear-gradient(black, cubic-bezier(0.48, 0.30, 0.64, 1.00), transparent); }',
-    'a{ background: linear-gradient(black, hsla(0, 0%, 0%, 0.9) 7.9%, hsla(0, 0%, 0%, 0.9) 15.3%, hsla(0, 0%, 0%, 0.8) 22.2%, hsla(0, 0%, 0%, 0.7) 28.7%, hsla(0, 0%, 0%, 0.7) 34.8%, hsla(0, 0%, 0%, 0.6) 40.6%, hsla(0, 0%, 0%, 0.5) 46.2%, hsla(0, 0%, 0%, 0.4) 51.7%, hsla(0, 0%, 0%, 0.3) 57.2%, hsla(0, 0%, 0%, 0.3) 62.8%, hsla(0, 0%, 0%, 0.2) 68.7%, hsla(0, 0%, 0%, 0.1) 75.2%, hsla(0, 0%, 0%, 0.1) 82.6%, hsla(0, 0%, 0%, 0) 91.2%, transparent); }', // eslint-disable-line max-len
+    'a{ background: linear-gradient(hsl(0, 0%, 0%) 0%, hsla(0, 0%, 0%, 0.9) 7.9%, hsla(0, 0%, 0%, 0.9) 15.3%, hsla(0, 0%, 0%, 0.8) 22.2%, hsla(0, 0%, 0%, 0.7) 28.7%, hsla(0, 0%, 0%, 0.7) 34.8%, hsla(0, 0%, 0%, 0.6) 40.6%, hsla(0, 0%, 0%, 0.5) 46.2%, hsla(0, 0%, 0%, 0.4) 51.7%, hsla(0, 0%, 0%, 0.3) 57.2%, hsla(0, 0%, 0%, 0.3) 62.8%, hsla(0, 0%, 0%, 0.2) 68.7%, hsla(0, 0%, 0%, 0.1) 75.2%, hsla(0, 0%, 0%, 0.1) 82.6%, hsla(0, 0%, 0%, 0) 91.2%, hsla(0, 0%, 0%, 0) 100%); }', // eslint-disable-line max-len
     { alphaDecimals: 1 }
   )
 })
-it('create a scrim gradient with .5 precision', () => {
+it('create a cubic-bezier gradient with .3 precision', () => {
   return run(
     'a{ background: linear-gradient(black, cubic-bezier(0.48, 0.30, 0.64, 1.00), transparent); }',
-    'a{ background: linear-gradient(black, hsla(0, 0%, 0%, 0.67) 34.6%, hsla(0, 0%, 0%, 0.278) 62.2%, transparent); }',
-    { precision: 0.5 }
+    'a{ background: linear-gradient(hsl(0, 0%, 0%) 0%, hsla(0, 0%, 0%, 0.81205) 22.5%, hsla(0, 0%, 0%, 0.58334) 41%, hsla(0, 0%, 0%, 0.34095) 57.7%, hsla(0, 0%, 0%, 0.11251) 76.1%, hsla(0, 0%, 0%, 0) 100%); }', // eslint-disable-line max-len
+    { precision: 0.3 }
   )
 })
 
@@ -76,7 +76,7 @@ it('ignore gradients with color stop locations set', () => {
 it('ignore gradients with incorrect transition function syntax set', () => {
   return run(
     'a{ background: linear-gradient(black, cubic-bezier(0.48, 0.30, 0.64), transparent); }',
-    'a{ background: linear-gradient(black, transparent); }',
+    'a{ background: linear-gradient(black, cubic-bezier(0.48, 0.30, 0.64), transparent); }',
     { }
   )
 })

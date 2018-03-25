@@ -1,19 +1,14 @@
+const easingCoordinates = require('easing-coordinates')
 const postcss = require('postcss')
 const valueParser = require('postcss-value-parser')
-
 const getColorStops = require('./lib/colorStops.js')
-const getCoordinates = require('./lib/coordinates.js')
 const helpers = require('./lib/helpers.js')
-
-const defaultPrecision = 0.1
-const defaultAlphaDecimals = 3
 
 /**
  * The easing gradient function is a postcss plugin which supports the in /.helpers mentioned gradient types.
  */
-module.exports = postcss.plugin('easing-gradient', (opts) => {
+module.exports = postcss.plugin('easing-gradient', (options = {}) => {
   return function (css) {
-    const options = opts || {}
     css.walkRules((rule) => {
       rule.walkDecls((decl) => {
         // If declaration value contains a linear-gradient.
@@ -24,29 +19,34 @@ module.exports = postcss.plugin('easing-gradient', (opts) => {
             // Only modify gradient as the value can contain more e.g. 'linear-gradient(black, pink) center'.
             if (node.value === 'linear-gradient') {
               // Get a sensible array of gradient parameters where e.g. a function is split into multiple array items
-              node.nodes = helpers.divToSemiColon(node.nodes)
-              let gradientParams = valueParser.stringify(node.nodes).split(';').map(str => str.trim())
-              // Loop and do magic whenever we encounter a timing function
-              gradientParams = gradientParams.map((param, i) => {
+              const gradientParams = valueParser
+                .stringify(helpers.divToSemiColon(node.nodes))
+                .split(';')
+                .map(str => str.trim())
+
+              gradientParams.forEach((param, i) => {
                 if (helpers.isTimingFunction(param)) {
                   try {
                     const colors = [gradientParams[i - 1], gradientParams[i + 1]]
-                    const coordinates = getCoordinates(param, options.precision || defaultPrecision)
-                    const colorStops = getColorStops(colors, coordinates, options.alphaDecimals || defaultAlphaDecimals)
-                    param = colorStops.join(', ')
+                    const coordinates = easingCoordinates.easingCoordinates(param, options.precision)
+                    const colorStops = getColorStops(colors, coordinates, options.alphaDecimals)
+                    // Update node
+                    node.type = 'word'
+                    // Assume if it has 4 params it's because the first one is the direction
+                    if (gradientParams.length === 4) {
+                      node.value = `linear-gradient(${gradientParams[0]}, ${colorStops.join(', ')})`
+                    } else {
+                      node.value = `linear-gradient(${colorStops.join(', ')})`
+                    }
+                    // Update our declaration value
+                    decl.value = parsedValue.toString()
                   } catch (error) {
-                    console.log(`While looking at ${param} we got an error. Check the color before or after it.`)
+                    console.log(helpers.errorMsg(decl.value))
                   }
                 }
-                return param
-              }).filter(param => param !== '') // Filter out empty params
-              // Update node
-              node.type = 'word'
-              node.value = `linear-gradient(${gradientParams.join(', ')})`
+              })
             }
           })
-          // Update our declaration value
-          decl.value = parsedValue.toString()
         }
       })
     })

@@ -39,8 +39,8 @@ function css () {
     .pipe(gulpPostcss([
       easingGradient({
         // Default settings
-        precision: 0.10,
-        alphaDecimals: 3
+        precision: 0.1,
+        alphaDecimals: 5
       })
     ]))
     .pipe(gulpRename({extname: '.css'}))
