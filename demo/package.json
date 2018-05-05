@@ -9,11 +9,11 @@
   "author": "Andreas Larsen",
   "license": "MIT",
   "devDependencies": {
-    "browser-sync": "^2.23.6",
-    "easing-coordinates": "^1.0.2",
+    "browser-sync": "^2.24.4",
+    "easing-coordinates": "^1.0.4",
     "gulp": "^4.0.0",
     "gulp-postcss": "^7.0.1",
     "gulp-rename": "^1.2.2",
-    "postcss-easing-gradients": "^2.0.0"
+    "postcss-easing-gradients": "^2.0.1"
   }
 }
