@@ -33,6 +33,13 @@ it('create an ease gradient with direction', () => {
     { }
   )
 })
+it('create an ease radial-gradient', () => {
+  return run(
+    'a{ background: radial-gradient(circle at top right, red, ease-in-out, blue); }',
+    'a{ background: radial-gradient(circle at top right, hsl(0, 100%, 50%), hsl(353.5, 100%, 49.71%) 7.7%, hsl(347.13, 100%, 48.89%) 14.8%, hsl(341.1, 100%, 47.69%) 21%, hsl(335.24, 100%, 46.22%) 26.5%, hsl(329.48, 100%, 44.57%) 31.4%, hsl(323.63, 100%, 42.76%) 35.9%, hsl(317.56, 100%, 40.82%) 40.1%, hsl(310.92, 100%, 38.7%) 44.2%, hsl(303.81, 100%, 36.49%) 48.1%, hsl(296, 100%, 36.55%) 52%, hsl(288.73, 100%, 38.81%) 56%, hsl(282.14, 100%, 40.92%) 60.1%, hsl(276.09, 100%, 42.84%) 64.3%, hsl(270.27, 100%, 44.64%) 68.8%, hsl(264.54, 100%, 46.28%) 73.7%, hsl(258.7, 100%, 47.74%) 79.2%, hsl(252.68, 100%, 48.92%) 85.4%, hsl(246.32, 100%, 49.72%) 92.5%, hsl(240, 100%, 50%)); }', // eslint-disable-line max-len
+    { }
+  )
+})
 
 /**
  * Output with custom settings
