@@ -9,13 +9,13 @@ const helpers = require('./lib/helpers.js')
  */
 module.exports = postcss.plugin('easing-gradient', (options = {}) => {
   return function (css) {
-    css.walkRules((rule) => {
-      rule.walkDecls((decl) => {
+    css.walkRules(rule => {
+      rule.walkDecls(decl => {
         // If declaration value contains a -gradient.
         if (decl.value.includes('-gradient')) {
           // Parse the declaration and walk through the nodes - https://github.com/TrySound/postcss-value-parser.
           const parsedValue = valueParser(decl.value)
-          parsedValue.walk((node) => {
+          parsedValue.walk(node => {
             // Only modify gradient as the value can contain more e.g. 'linear-gradient(black, pink) center'.
             if (node.value === 'linear-gradient' || node.value === 'radial-gradient') {
               // Get a sensible array of gradient parameters where e.g. a function is split into multiple array items
@@ -34,9 +34,9 @@ module.exports = postcss.plugin('easing-gradient', (options = {}) => {
                     node.type = 'word'
                     // Assume if it has 4 params it's because the first one is the direction
                     if (gradientParams.length === 4) {
-                      node.value = `${node.value}(${gradientParams[0]}, ${colorStops.join(', ')})`
+                      node.value = `${ node.value }(${ gradientParams[0] }, ${ colorStops.join(', ') })`
                     } else {
-                      node.value = `${node.value}(${colorStops.join(', ')})`
+                      node.value = `${ node.value }(${ colorStops.join(', ') })`
                     }
                     // Update our declaration value
                     decl.value = parsedValue.toString()
