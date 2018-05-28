@@ -1,11 +1,10 @@
 {
   "name": "postcss-easing-gradients",
-  "version": "2.2.1",
+  "version": "3.0.0",
   "engines": {
     "node": ">=6.0.0"
   },
-  "description":
-    "PostCSS plugin to create smooth linear-gradients that approximate easing functions.",
+  "description": "PostCSS plugin to create smooth linear-gradients that approximate easing functions.",
   "scripts": {
     "test": "jest && eslint *.js",
     "lintfix": "eslint --fix --ext .js --ignore-path .gitignore ."
@@ -14,7 +13,12 @@
     "type": "git",
     "url": "git+https://github.com/larsenwork/postcss-easing-gradients.git"
   },
-  "keywords": ["postcss", "postcss-plugin", "css", "gradients"],
+  "keywords": [
+    "postcss",
+    "postcss-plugin",
+    "css",
+    "gradients"
+  ],
   "author": "Andreas Larsen <andreas@larsenwork.com> (https://larsenwork.com)",
   "license": "MIT",
   "bugs": {
@@ -45,20 +49,31 @@
     "prettier-eslint": "^8.8.1"
   },
   "eslintConfig": {
-    "plugins": ["prettier"],
+    "plugins": [
+      "prettier"
+    ],
     "env": {
       "jest": true
     },
     "parserOptions": {
       "ecmaVersion": 6
     },
-    "extends": ["plugin:prettier/recommended"],
+    "extends": [
+      "plugin:prettier/recommended"
+    ],
     "rules": {
       "prettier/prettier": [
         "error",
-        { "singleQuote": true, "trailingComma": "es5", "parser": "flow" }
+        {
+          "singleQuote": true,
+          "trailingComma": "es5",
+          "parser": "flow"
+        }
       ],
-      "max-len": ["error", 120],
+      "max-len": [
+        "error",
+        120
+      ],
       "func-style": [
         "error",
         "declaration",
