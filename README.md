@@ -6,7 +6,7 @@
 [![Dependency status][dpd-img]][dpd]
 <br>
 [![MIT License][mit-img]][mit]
-[![JavaScript Style Guide][std-img]][std]
+[![Code Style: Prettier][prt-img]][prt]
 [![Follow Larsenwork on Twitter][twt-img]][twt]
 
 [PostCSS](https://github.com/postcss/postcss) plugin to create smooth linear-gradients that approximate easing functions.
@@ -159,8 +159,8 @@ is the default color space used for interpolation and is closest to what most br
 [dm-img]: https://img.shields.io/npm/dm/postcss-easing-gradients.svg?longCache=true&style=flat-square
 [dpd-img]: https://img.shields.io/david/larsenwork/postcss-easing-gradients.svg?longCache=true&style=flat-square
 [dpd]: https://david-dm.org/larsenwork/postcss-easing-gradients
-[std-img]: https://img.shields.io/badge/code_style-standard-brightgreen.svg?longCache=true&style=flat-square
-[std]: https://standardjs.com
+[prt-img]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?longCache=true&style=flat-square
+[prt]: https://github.com/prettier/prettier
 [mit-img]: https://img.shields.io/github/license/larsenwork/postcss-easing-gradients.svg?longCache=true&style=flat-square
 [mit]: https://github.com/larsenwork/postcss-easing-gradients/blob/master/LICENSE
 [twt-img]: https://img.shields.io/twitter/follow/larsenwork.svg?label=follow+larsenwork&longCache=true&style=flat-square
