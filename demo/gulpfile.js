@@ -8,42 +8,44 @@ const paths = {
   base: './',
   styles: {
     src: './css/*.pcss',
-    dest: './css'
+    dest: './css',
   },
   html: {
-    src: './*.html'
-  }
+    src: './*.html',
+  },
 }
 
-function serve (done) {
+function serve(done) {
   browserSync.init({
     server: { baseDir: paths.base },
-    open: false
+    open: false,
   })
   done()
 }
 
-function reload (done) {
+function reload(done) {
   browserSync.reload()
   done()
 }
 
-function watch () {
+function watch() {
   gulp.watch(paths.styles.src, gulp.series(css, reload))
   gulp.watch(paths.html.src).on('change', browserSync.reload)
 }
 
-function css () {
+function css() {
   return gulp
     .src(paths.styles.src)
-    .pipe(gulpPostcss([
-      easingGradient({
-        // Default settings
-        precision: 0.1,
-        alphaDecimals: 5
-      })
-    ]))
-    .pipe(gulpRename({extname: '.css'}))
+    .pipe(
+      gulpPostcss([
+        easingGradient({
+          // Default settings
+          precision: 0.1,
+          alphaDecimals: 5,
+        }),
+      ])
+    )
+    .pipe(gulpRename({ extname: '.css' }))
     .pipe(gulp.dest(paths.styles.dest))
 }
 

@@ -1,4 +1,6 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   padding: 0;
   margin: 0;
 }
@@ -8,7 +10,7 @@ body {
 }
 
 .gradient {
-  background-image: radial-gradient(circle, red, blue);
+  background: linear-gradient(to right, hsl(120, 100%, 25.1%), hsl(120, 100%, 25.1%) 25%, hsl(42.59, 100%, 28.87%) 25%, hsl(42.59, 100%, 28.87%) 50%, hsl(21.3, 100%, 40.82%) 50%, hsl(21.3, 100%, 40.82%) 75%, hsl(0, 100%, 50%) 75%, hsl(0, 100%, 50%));
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

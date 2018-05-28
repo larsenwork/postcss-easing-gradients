@@ -18,12 +18,7 @@ Visual examples and online editor on [larsenwork.com/easing-gradients](https://l
 
 ```css
 .cubic-bezier {
-  background: linear-gradient(
-    to bottom,
-    black,
-    cubic-bezier(0.48, 0.30, 0.64, 1.00),
-    transparent
-  );
+  background: linear-gradient(to bottom, black, cubic-bezier(0.48, 0.3, 0.64, 1), transparent);
   /* => */
   background: linear-gradient(
     to bottom,
@@ -47,60 +42,46 @@ Visual examples and online editor on [larsenwork.com/easing-gradients](https://l
 }
 
 .ease {
-  background: linear-gradient(
-    green,
-    ease,
-    red
-  );
+  background: linear-gradient(green, ease, red);
   /* => */
   background: linear-gradient(
     hsl(120, 100%, 25.1%),
-    hsl(111.85, 100%, 23.5%) 7.8%,
-    hsl(98.92, 100%, 21.34%) 13.2%,
-    hsl(82.02, 100%, 19.05%) 17.6%,
-    hsl(60.02, 100%, 16.71%) 21.7%,
-    hsl(40.57, 100%, 21.3%) 25.8%,
-    hsl(28.11, 100%, 25.86%) 30.2%,
-    hsl(19.54, 100%, 30.32%) 35.1%,
-    hsl(13.47, 100%, 34.55%) 40.6%,
-    hsl(9.01, 100%, 38.49%) 46.9%,
-    hsl(5.73, 100%, 42.01%) 54.1%,
-    hsl(3.36, 100%, 44.98%) 62.2%,
-    hsl(1.74, 100%, 47.28%) 71.1%,
-    hsl(0.7, 100%, 48.86%) 80.6%,
-    hsl(0.15, 100%, 49.74%) 90.5%,
+    hsl(88.79, 100%, 24.28%) 7.8%,
+    hsl(69.81, 100%, 23.14%) 13.2%,
+    hsl(53.43, 100%, 24.55%) 17.6%,
+    hsl(42.52, 100%, 28.9%) 21.7%,
+    hsl(34.96, 100%, 32.64%) 25.8%,
+    hsl(29.1, 100%, 35.96%) 30.2%,
+    hsl(24.26, 100%, 38.94%) 35.1%,
+    hsl(20.14, 100%, 41.56%) 40.6%,
+    hsl(16.47, 100%, 43.87%) 46.9%,
+    hsl(13.13, 100%, 45.83%) 54.1%,
+    hsl(10.07, 100%, 47.42%) 62.2%,
+    hsl(7.23, 100%, 48.62%) 71.1%,
+    hsl(4.6, 100%, 49.43%) 80.6%,
+    hsl(2.16, 100%, 49.87%) 90.5%,
     hsl(0, 100%, 50%)
   );
 }
 
 .steps {
-  background: linear-gradient(
-    to right,
-    green,
-    steps(4, skip-none),
-    red
-  );
+  background: linear-gradient(to right, green, steps(4, skip-none), red);
   /* => */
   background: linear-gradient(
     to right,
     hsl(120, 100%, 25.1%),
     hsl(120, 100%, 25.1%) 25%,
-    hsl(60.23, 100%, 16.73%) 25%,
-    hsl(60.23, 100%, 16.73%) 50%,
-    hsl(15.06, 100%, 33.33%) 50%,
-    hsl(15.06, 100%, 33.33%) 75%,
+    hsl(42.59, 100%, 28.87%) 25%,
+    hsl(42.59, 100%, 28.87%) 50%,
+    hsl(21.3, 100%, 40.82%) 50%,
+    hsl(21.3, 100%, 40.82%) 75%,
     hsl(0, 100%, 50%) 75%,
     hsl(0, 100%, 50%)
   );
 }
 
 .radial {
-  background: radial-gradient(
-    circle at top right,
-    red,
-    ease-in-out,
-    blue
-  );
+  background: radial-gradient(circle at top right, red, ease-in-out, blue);
   /* => */
   background: radial-gradient(
     circle at top right,
@@ -150,7 +131,7 @@ The steps syntax is also being figured out and currently [this](https://github.c
 ## Usage
 
 ```js
-postcss([ require('postcss-easing-gradients') ])
+postcss([require('postcss-easing-gradients')])
 ```
 
 See [PostCSS Usage](https://github.com/postcss/postcss#usage) docs for examples for your environment.
@@ -159,9 +140,9 @@ See [PostCSS Usage](https://github.com/postcss/postcss#usage) docs for examples 
 
 ## Options
 
-### precision: 0.1
+### colorStops: 15
 
-is the default and creates ~17 color stops. A higher number creates a more "low poly" gradient and banding becomes very visible when using anything above 0.2.
+is the default. A lower number creates a more "low poly" gradient with less code but a higher risk of banding.
 
 ### alphaDecimals: 5
 
@@ -171,16 +152,16 @@ is the default. A lower number can result in banding.
 
 is the default color space used for interpolation and is closest to what most browsers use. Other options are `'rgb', 'hsl', 'lab' and 'lch'` as per [chromajs documentation](http://gka.github.io/chroma.js/#chroma-mix)
 
-[ci-img]:  https://img.shields.io/travis/larsenwork/postcss-easing-gradients.svg?branch=master&longCache=true&style=flat-square
-[ci]:      https://travis-ci.org/larsenwork/postcss-easing-gradients
+[ci-img]: https://img.shields.io/travis/larsenwork/postcss-easing-gradients.svg?branch=master&longCache=true&style=flat-square
+[ci]: https://travis-ci.org/larsenwork/postcss-easing-gradients
 [npm-img]: https://img.shields.io/npm/v/postcss-easing-gradients.svg?longCache=true&style=flat-square
-[npm]:     https://www.npmjs.com/package/postcss-easing-gradients
-[dm-img]:  https://img.shields.io/npm/dm/postcss-easing-gradients.svg?longCache=true&style=flat-square
+[npm]: https://www.npmjs.com/package/postcss-easing-gradients
+[dm-img]: https://img.shields.io/npm/dm/postcss-easing-gradients.svg?longCache=true&style=flat-square
 [dpd-img]: https://img.shields.io/david/larsenwork/postcss-easing-gradients.svg?longCache=true&style=flat-square
-[dpd]:     https://david-dm.org/larsenwork/postcss-easing-gradients
+[dpd]: https://david-dm.org/larsenwork/postcss-easing-gradients
 [std-img]: https://img.shields.io/badge/code_style-standard-brightgreen.svg?longCache=true&style=flat-square
-[std]:     https://standardjs.com
+[std]: https://standardjs.com
 [mit-img]: https://img.shields.io/github/license/larsenwork/postcss-easing-gradients.svg?longCache=true&style=flat-square
-[mit]:     https://github.com/larsenwork/postcss-easing-gradients/blob/master/LICENSE
+[mit]: https://github.com/larsenwork/postcss-easing-gradients/blob/master/LICENSE
 [twt-img]: https://img.shields.io/twitter/follow/larsenwork.svg?label=follow+larsenwork&longCache=true&style=flat-square
-[twt]:     https://twitter.com/larsenwork
+[twt]: https://twitter.com/larsenwork

@@ -4,7 +4,8 @@
   "description": "",
   "main": "codepen.js",
   "scripts": {
-    "browserify": "browserify codepen.js | babel --presets=env | uglifyjs --compress --mangle > codepen.bundle.js"
+    "browserify":
+      "browserify codepen.js | babel --presets=env | uglifyjs --compress --mangle > codepen.bundle.js"
   },
   "author": "Andreas",
   "license": "MIT",
